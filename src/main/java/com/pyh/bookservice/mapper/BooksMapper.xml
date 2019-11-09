@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pyh.bookservice.mapper.BooksMapper">
+    <select id="showAllBooks" parameterType="string"  resultType="com.pyh.bookservice.entity.Book">
+        SELECT b.* FROM book b where 1=1
+        <if test="booktype!= '' and booktype!= null">
+            and b.booktype = #{booktype}
+        </if>
+
+    </select>
+
+    <select id="showBooksByName" parameterType="string"  resultType="com.pyh.bookservice.entity.Book">
+        SELECT b.* FROM book b where 1=1 and bookname LIKE concat(concat('%',#{bookname}),'%')
+    </select>
+
+
+</mapper>

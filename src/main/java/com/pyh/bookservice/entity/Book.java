@@ -8,16 +8,16 @@ public class Book {
     private String bookid;
     private String bookname;
     private String bookno;
+    private String bookauthor;
     private String booktype;
+    private String booknum;
     private String bookstatus;
+    private String bookpic;
 
-    public Book(String bookid, String bookname, String bookno, String booktype, String bookstatus) {
-        this.bookid = bookid;
-        this.bookname = bookname;
-        this.bookno = bookno;
-        this.booktype = booktype;
-        this.bookstatus = bookstatus;
+    public Book() {
+
     }
+
 
     public String getBookid() {
         return bookid;
@@ -43,6 +43,14 @@ public class Book {
         this.bookno = bookno;
     }
 
+    public String getBookauthor() {
+        return bookauthor;
+    }
+
+    public void setBookauthor(String bookauthor) {
+        this.bookauthor = bookauthor;
+    }
+
     public String getBooktype() {
         return booktype;
     }
@@ -51,11 +59,27 @@ public class Book {
         this.booktype = booktype;
     }
 
+    public String getBooknum() {
+        return booknum;
+    }
+
+    public void setBooknum(String booknum) {
+        this.booknum = booknum;
+    }
+
     public String getBookstatus() {
         return bookstatus;
     }
 
     public void setBookstatus(String bookstatus) {
         this.bookstatus = bookstatus;
+    }
+
+    public String getBookpic() {
+        return bookpic;
+    }
+
+    public void setBookpic(String bookpic) {
+        this.bookpic = bookpic;
     }
 }
