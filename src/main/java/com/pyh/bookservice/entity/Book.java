@@ -13,6 +13,7 @@ public class Book {
     private String booknum;
     private String bookstatus;
     private String bookpic;
+    private String bookdelete;
 
     public Book() {
 
@@ -45,6 +46,14 @@ public class Book {
 
     public String getBookauthor() {
         return bookauthor;
+    }
+
+    public String getBookdelete() {
+        return bookdelete;
+    }
+
+    public void setBookdelete(String bookdelete) {
+        this.bookdelete = bookdelete;
     }
 
     public void setBookauthor(String bookauthor) {

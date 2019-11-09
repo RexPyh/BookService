@@ -14,13 +14,13 @@ import java.util.List;
 @Mapper
 public interface BooksMapper {
     /**
-     * 查找全部图书
+     * 查找全部图书(未删除)
      * @return
      */
     List<Book> showAllBooks(@Param("booktype")String booktype);
 
     /**
-     * 按名字模糊查询图书
+     * 按名字模糊查询图书（未删除）
      * @return
      */
     List<Book> showBooksByName(@Param("bookname")String bookname);

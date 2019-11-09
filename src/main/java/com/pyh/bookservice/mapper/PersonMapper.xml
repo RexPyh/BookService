@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pyh.bookservice.mapper.PersonMapper">
+    <select id="showAllPerson" parameterType="string"  resultType="com.pyh.bookservice.entity.Person">
+        SELECT p.*,u.useridentity FROM person p,user u where 1=1
+        and p.userid = u.userid
+        and p.persondelete = '0'
+        <if test="userid!= '' and userid!= null">
+            and p.userid = #{userid}
+        </if>
+
+    </select>
+
+<!--    <select id="showBooksByName" parameterType="string"  resultType="com.pyh.bookservice.entity.Book">-->
+<!--        SELECT b.*,t.booktypename FROM book b,booktype t where 1=1-->
+<!--        and b.booktype = t.booktypeid-->
+<!--        and b.bookdelete = '0'-->
+<!--        and bookname LIKE concat(concat('%',#{bookname}),'%')-->
+<!--    </select>-->
+
+
+</mapper>
