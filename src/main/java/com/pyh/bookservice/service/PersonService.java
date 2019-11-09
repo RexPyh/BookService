@@ -20,4 +20,10 @@ public class PersonService {
         return list;
     }
 
+    public List<Person> showPersonByName(String personname) {
+        List<Person> list = new ArrayList<>();
+        list = personMapper.showPersonByName(personname);
+        return list;
+    }
+
 }

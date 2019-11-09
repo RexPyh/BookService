@@ -25,4 +25,15 @@ public class PersonController {
     {
         return personService.showAllPerson(usertype);
     }
+
+    /**
+     * 按名字模糊查询人员
+     * @param personname
+     * @return
+     */
+    @GetMapping(value = "/showPersonByName")
+    public List<Person> showPersonByName(@RequestParam String personname)
+    {
+        return personService.showPersonByName(personname);
+    }
 }

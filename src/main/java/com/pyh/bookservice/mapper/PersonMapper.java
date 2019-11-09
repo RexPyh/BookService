@@ -14,4 +14,10 @@ public interface PersonMapper {
      * @return
      */
     List<Person> showAllPerson(@Param("userid")String userid);
+
+    /**
+     * 查找全部人员
+     * @return
+     */
+    List<Person> showPersonByName(@Param("personname")String personname);
 }
