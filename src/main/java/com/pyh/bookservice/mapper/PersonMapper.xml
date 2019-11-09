@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pyh.bookservice.mapper.PersonMapper">
-    <select id="showAllPerson" parameterType="string"  resultType="com.pyh.bookservice.entity.Person">
-        SELECT p.*,u.useridentity FROM person p,user  where 1=1
+    <select id="showAllPerson" parameterType="string"  resultType="com.pyh.bookservice.VO.PersonVO">
+        SELECT p.*,u.useridentity FROM person p,user u where 1=1
         and p.userid = u.userid
         and p.persondelete = '0'
         <if test="userid!= '' and userid!= null">

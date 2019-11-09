@@ -1,5 +1,6 @@
 package com.pyh.bookservice.control;
 
+import com.pyh.bookservice.VO.PersonVO;
 import com.pyh.bookservice.entity.Book;
 import com.pyh.bookservice.entity.Person;
 import com.pyh.bookservice.service.PersonService;
@@ -32,7 +33,7 @@ public class PersonController {
      * @return
      */
     @GetMapping(value = "/showPersonByName")
-    public List<Person> showPersonByName(@RequestParam String personname)
+    public List<PersonVO> showPersonByName(@RequestParam String personname)
     {
         return personService.showPersonByName(personname);
     }

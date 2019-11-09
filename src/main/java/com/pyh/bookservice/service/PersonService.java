@@ -1,5 +1,6 @@
 package com.pyh.bookservice.service;
 
+import com.pyh.bookservice.VO.PersonVO;
 import com.pyh.bookservice.entity.Book;
 import com.pyh.bookservice.entity.Person;
 import com.pyh.bookservice.mapper.PersonMapper;
@@ -20,8 +21,8 @@ public class PersonService {
         return list;
     }
 
-    public List<Person> showPersonByName(String personname) {
-        List<Person> list = new ArrayList<>();
+    public List<PersonVO> showPersonByName(String personname) {
+        List<PersonVO> list = new ArrayList<>();
         list = personMapper.showPersonByName(personname);
         return list;
     }
