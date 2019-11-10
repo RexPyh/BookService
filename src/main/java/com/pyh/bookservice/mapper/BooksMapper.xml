@@ -71,6 +71,7 @@
           and p.personid = #{personid}
         <if test="bookstatus!= '' and bookstatus!= null">
             and b.bookstatus = #{bookstatus}
+            and pb.deaddate is null
         </if>
     </select>
 
