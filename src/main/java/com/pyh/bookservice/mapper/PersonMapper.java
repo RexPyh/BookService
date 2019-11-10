@@ -28,4 +28,17 @@ public interface PersonMapper {
      */
     List<PersonVO> showPersonInfo(@Param("personid")String personid);
 
+    /**
+     * 注册新增人员
+     * @param person
+     * @return
+     */
+    int addPersonByAdmin(Person person);
+
+    /**
+     * 删除指定id的人员
+     * @param personid
+     */
+    void removePerson(@Param("personid")String personid);
+
 }

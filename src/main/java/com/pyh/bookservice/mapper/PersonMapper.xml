@@ -24,4 +24,13 @@
     </select>
 
 
+    <insert id="addPersonByAdmin" parameterType="com.pyh.bookservice.entity.Person">
+        INSERT INTO person(personid, personname, personpassword, userid, personsex, personemail, personhome, persontel, persondelete) VALUES (#{personid},#{personname},#{personpassword},#{userid},#{personsex},#{personemail},#{personhome},#{persontel},#{persondelete})
+    </insert>
+
+    <delete id="removePerson" parameterType="string">
+        DELETE FROM person WHERE personid = #{personid}
+    </delete>
+
+
 </mapper>

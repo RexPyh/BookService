@@ -38,4 +38,29 @@ public class PersonService {
         return outputdata;
     }
 
+    public Map addPersonByAdmin(Person newPerson,String isNew){
+        Map outputdata = new HashMap();
+        int meta = 0;
+        String msg = "";
+        int addNum = 0;
+        if(isNew.equals("add")){
+            addNum = personMapper.addPersonByAdmin(newPerson);
+            meta = 200;
+            msg = "您已注册成功！";
+            outputdata.put("data",newPerson);
+        }else if(isNew.equals("update")){
+            meta = 200;
+            personMapper.removePerson(newPerson.getPersonid());
+            addNum = personMapper.addPersonByAdmin(newPerson);
+            msg = "您已成功修改人员信息";
+            outputdata.put("data",newPerson);
+        }else{
+            meta = 500;
+            msg = "操作失败！";
+        }
+        outputdata.put("msg",msg);
+        outputdata.put("meta",meta);
+        return outputdata;
+    }
+
 }

@@ -61,7 +61,6 @@ public class BooksController {
      */
     @PostMapping(value = "/admin/addBook")
     public Map addBooksByAdmin(@RequestBody Map inputdata){
-        System.out.println(inputdata);
         String isNew = "";
         try {
             isNew = inputdata.get("new").toString();
