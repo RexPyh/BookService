@@ -51,7 +51,7 @@ public class PersonController {
     }
 
     /**
-     * 新增图书
+     * 注册新增人员或修改人员信息
      * @param inputdata
      * @return
      */

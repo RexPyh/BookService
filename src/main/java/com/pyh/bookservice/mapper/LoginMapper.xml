@@ -3,9 +3,6 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pyh.bookservice.mapper.LoginMapper">
-<!--    <insert id="addAnimal" parameterType="com.tony.springdemotest.test1.entity.Animals">-->
-<!--        INSERT INTO animals(ANIMAL_ID,ANIMAL_NAME,ANIMAL_AGE) VALUES (#{ANIMAL_ID},#{ANIMAL_NAME},#{ANIMAL_AGE})-->
-<!--    </insert>-->
 
     <select id="findPersonnameIsTrue" parameterType="string" resultType="com.pyh.bookservice.entity.Person">
         SELECT * FROM person p where p.personid = #{pid};
