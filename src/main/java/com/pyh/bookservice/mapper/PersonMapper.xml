@@ -6,18 +6,21 @@
     <select id="showAllPerson" parameterType="string"  resultType="com.pyh.bookservice.VO.PersonVO">
         SELECT p.*,u.useridentity FROM person p,user u where 1=1
         and p.userid = u.userid
-        and p.persondelete = '0'
         <if test="userid!= '' and userid!= null">
             and p.userid = #{userid}
         </if>
-
     </select>
 
-    <select id="showPersonByName" parameterType="string"  resultType="com.pyh.bookservice.entity.Person">
+    <select id="showPersonByName" parameterType="string"  resultType="com.pyh.bookservice.VO.PersonVO">
         SELECT p.*,u.useridentity FROM person p,user u where 1=1
         and p.userid = u.userid
-        and p.persondelete = '0'
         and personname LIKE concat(concat('%',#{personname}),'%')
+    </select>
+
+    <select id="showPersonInfo" parameterType="string"  resultType="com.pyh.bookservice.VO.PersonVO">
+        SELECT p.*,u.useridentity FROM person p,user u where 1=1
+        and p.userid = u.userid
+        and personid = #{personid}
     </select>
 
 

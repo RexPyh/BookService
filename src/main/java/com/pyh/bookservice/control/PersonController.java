@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class PersonController {
@@ -22,7 +23,7 @@ public class PersonController {
      * @return
      */
     @GetMapping(value = "/showAllPerson")
-    public List<Person> showAllPerson(@RequestParam String usertype)
+    public List<PersonVO> showAllPerson(@RequestParam String usertype)
     {
         return personService.showAllPerson(usertype);
     }
@@ -36,5 +37,16 @@ public class PersonController {
     public List<PersonVO> showPersonByName(@RequestParam String personname)
     {
         return personService.showPersonByName(personname);
+    }
+
+    /**
+     * 查询个人信息
+     * @param personid
+     * @return
+     */
+    @GetMapping(value = "/showPersonInfo")
+    public Map showPersonInfo(@RequestParam String personid)
+    {
+        return personService.showPersonInfo(personid);
     }
 }

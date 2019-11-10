@@ -14,11 +14,18 @@ public interface PersonMapper {
      * 查找全部人员
      * @return
      */
-    List<Person> showAllPerson(@Param("userid")String userid);
+    List<PersonVO> showAllPerson(@Param("userid")String userid);
 
     /**
      * 查找全部人员
      * @return
      */
     List<PersonVO> showPersonByName(@Param("personname")String personname);
+
+    /**
+     * 查询个人信息
+     * @return
+     */
+    List<PersonVO> showPersonInfo(@Param("personid")String personid);
+
 }
