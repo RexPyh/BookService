@@ -62,4 +62,16 @@
         and b.bookstatus = '1'
     </select>
 
+    <select id="showMyBooks" parameterType="string"  resultType="com.pyh.bookservice.VO.PersonBookVO">
+        select b.*,p.personid,t.booktypename,pb.createdate,pb.deaddate from book b,personbook pb,person p,booktype t
+        where 1=1
+          and b.bookid = pb.bookid
+          and b.booktype = t.booktypeid
+          and p.personid = pb.personid
+          and p.personid = #{personid}
+        <if test="bookstatus!= '' and bookstatus!= null">
+            and b.bookstatus = #{bookstatus}
+        </if>
+    </select>
+
 </mapper>

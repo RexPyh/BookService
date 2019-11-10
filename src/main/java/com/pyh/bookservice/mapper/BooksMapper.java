@@ -6,6 +6,7 @@
 package com.pyh.bookservice.mapper;
 
 import com.pyh.bookservice.VO.BookVO;
+import com.pyh.bookservice.VO.PersonBookVO;
 import com.pyh.bookservice.entity.Book;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -81,4 +82,10 @@ public interface BooksMapper {
      * @return
      */
     List<BookVO> showBooksById(@Param("bookid")String bookid);
+
+    /**
+     * 查询指定我的图书   status筛选：  空：全部借阅过的书，1：正在借阅的书
+     * @return
+     */
+    List<PersonBookVO> showMyBooks(@Param("personid")String personid, @Param("bookstatus")String bookstatus);
 }

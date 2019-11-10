@@ -112,4 +112,17 @@ public class BooksController {
         return bookService.borrowBook(personid,bookid,bookstatus);
     }
 
+
+    /**
+     * 查询指定我的图书   status筛选：0全部借阅过的书，1为正在借阅的书
+     * @param personid
+     * @param bookstatus
+     * @return
+     */
+    @GetMapping(value = "/showMyBooks")
+    public Map showMyBooks(@RequestParam String personid,@RequestParam String bookstatus)
+    {
+        return bookService.showMyBooks(personid,bookstatus);
+    }
+
 }

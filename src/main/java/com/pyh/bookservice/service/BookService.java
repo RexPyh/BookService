@@ -5,6 +5,7 @@
 package com.pyh.bookservice.service;
 
 import com.pyh.bookservice.VO.BookVO;
+import com.pyh.bookservice.VO.PersonBookVO;
 import com.pyh.bookservice.entity.Book;
 import com.pyh.bookservice.entity.Person;
 import com.pyh.bookservice.mapper.BooksMapper;
@@ -95,6 +96,14 @@ public class BookService {
         }
         outputdata.put("meta",meta);
         outputdata.put("msg",msg);
+        return outputdata;
+    }
+
+    public Map showMyBooks(String personid,String bookstatus) {
+        Map outputdata = new HashMap();
+        List<PersonBookVO> list = booksMapper.showMyBooks(personid,bookstatus);
+        outputdata.put("meta",200);
+        outputdata.put("data",list);
         return outputdata;
     }
 
