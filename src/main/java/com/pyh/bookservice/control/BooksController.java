@@ -50,7 +50,6 @@ public class BooksController {
         }else {
             return Result.success(bookService.showBooksByName(bookname));
         }
-
     }
 
     /**
