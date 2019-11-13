@@ -99,12 +99,8 @@ public class BookService {
         return outputdata;
     }
 
-    public Map showMyBooks(String personid,String bookstatus) {
-        Map outputdata = new HashMap();
-        List<PersonBookVO> list = booksMapper.showMyBooks(personid,bookstatus);
-        outputdata.put("meta",200);
-        outputdata.put("data",list);
-        return outputdata;
+    public List<PersonBookVO> showMyBooks(String personid,String bookstatus) {
+        return booksMapper.showMyBooks(personid,bookstatus);
     }
 
 }

@@ -29,13 +29,8 @@ public class PersonService {
         return list;
     }
 
-    public Map showPersonInfo(String personid) {
-        Map outputdata = new HashMap();
-        List<PersonVO> list = new ArrayList<>();
-        list = personMapper.showPersonInfo(personid);
-        outputdata.put("meta",200);
-        outputdata.put("data",list);
-        return outputdata;
+    public List<PersonVO> showPersonInfo(String personid) {
+        return personMapper.showPersonInfo(personid);
     }
 
     public Map addPersonByAdmin(Person newPerson,String isNew){

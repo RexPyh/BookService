@@ -7,6 +7,7 @@ package com.pyh.bookservice.control;
 import com.alibaba.druid.filter.AutoLoad;
 import com.pyh.bookservice.VO.BookVO;
 import com.pyh.bookservice.entity.Book;
+import com.pyh.bookservice.entity.Result;
 import com.pyh.bookservice.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,9 +28,13 @@ public class BooksController {
      * @return
      */
     @GetMapping(value = "/showAllBooks")
-    public List<BookVO> showAllBooks(@RequestParam String booktype)
+    public Result showAllBooks(@RequestParam(value = "booktype", required = false) String booktype)
     {
-        return bookService.showAllBooks(booktype);
+        if(booktype == null){
+            return Result.fail();
+        }else{
+            return Result.success(bookService.showAllBooks(booktype));
+        }
     }
 
     /**
@@ -38,9 +43,14 @@ public class BooksController {
      * @return
      */
     @GetMapping(value = "/showBooksByName")
-    public List<BookVO> showBooksByName(@RequestParam String bookname)
+    public Result showBooksByName(@RequestParam(value = "bookname", required = false) String bookname)
     {
-        return bookService.showBooksByName(bookname);
+        if(bookname == null){
+            return Result.fail();
+        }else {
+            return Result.success(bookService.showBooksByName(bookname));
+        }
+
     }
 
     /**
@@ -49,9 +59,13 @@ public class BooksController {
      * @return
      */
     @GetMapping(value = "/admin/showAllBooks")
-    public List<BookVO> showAllBooksByAdmin(@RequestParam String booktype)
+    public Result showAllBooksByAdmin(@RequestParam(value = "booktype", required = false) String booktype)
     {
-        return bookService.showAllBooksByAdmin(booktype);
+        if(booktype == null){
+            return Result.fail();
+        }else{
+            return Result.success(bookService.showAllBooksByAdmin(booktype));
+        }
     }
 
     /**
@@ -113,15 +127,19 @@ public class BooksController {
 
 
     /**
-     * 查询指定我的图书   status筛选：0全部借阅过的书，1为正在借阅的书
+     * 查询指定我的图书   status筛选：空为全部借阅过的书，1为正在借阅的书
      * @param personid
      * @param bookstatus
      * @return
      */
     @GetMapping(value = "/showMyBooks")
-    public Map showMyBooks(@RequestParam String personid,@RequestParam String bookstatus)
+    public Result showMyBooks(@RequestParam(value = "personid", required = false) String personid,@RequestParam(value = "bookstatus", required = false) String bookstatus)
     {
-        return bookService.showMyBooks(personid,bookstatus);
+        if(personid == null || bookstatus == null){
+            return Result.fail();
+        }else{
+            return Result.success(bookService.showMyBooks(personid,bookstatus));
+        }
     }
 
 }

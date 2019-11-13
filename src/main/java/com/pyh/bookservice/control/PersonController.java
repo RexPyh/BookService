@@ -3,6 +3,7 @@ package com.pyh.bookservice.control;
 import com.pyh.bookservice.VO.PersonVO;
 import com.pyh.bookservice.entity.Book;
 import com.pyh.bookservice.entity.Person;
+import com.pyh.bookservice.entity.Result;
 import com.pyh.bookservice.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,9 +24,13 @@ public class PersonController {
      * @return
      */
     @GetMapping(value = "/showAllPerson")
-    public List<PersonVO> showAllPerson(@RequestParam String usertype)
+    public Result showAllPerson(@RequestParam(value = "usertype", required = false) String usertype)
     {
-        return personService.showAllPerson(usertype);
+        if(usertype == null){
+            return Result.fail();
+        }else {
+            return Result.success(personService.showAllPerson(usertype));
+        }
     }
 
     /**
@@ -34,9 +39,13 @@ public class PersonController {
      * @return
      */
     @GetMapping(value = "/showPersonByName")
-    public List<PersonVO> showPersonByName(@RequestParam String personname)
+    public Result showPersonByName(@RequestParam(value = "personname", required = false) String personname)
     {
-        return personService.showPersonByName(personname);
+        if(personname == null){
+            return Result.fail();
+        }else {
+            return Result.success(personService.showPersonByName(personname));
+        }
     }
 
     /**
@@ -45,9 +54,13 @@ public class PersonController {
      * @return
      */
     @GetMapping(value = "/showPersonInfo")
-    public Map showPersonInfo(@RequestParam String personid)
+    public Result showPersonInfo(@RequestParam(value = "personid", required = false) String personid)
     {
-        return personService.showPersonInfo(personid);
+        if(personid == null){
+            return Result.fail();
+        }else {
+            return Result.success(personService.showPersonInfo(personid));
+        }
     }
 
     /**
