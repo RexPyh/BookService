@@ -24,7 +24,6 @@ public class IdUtil {
             {
                 flag.append(sources.charAt(rand.nextInt(9)) + "");
             }
-            System.out.println(flag.toString());
             id = flag.toString();
         }
         return id;

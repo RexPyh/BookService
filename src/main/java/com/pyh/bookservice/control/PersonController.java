@@ -87,7 +87,16 @@ public class PersonController {
         newPerson.setPersontel(inputdata.get("persontel").toString());
         newPerson.setPersonpassword(inputdata.get("personpassword").toString());
         if(isNew.equals("add")){
-            newPerson.setPersonid(idUtil.getRandomId());
+            String id;
+            List list = new ArrayList();
+            while(true){
+                id = idUtil.getRandomId();
+                list = personService.showPersonInfo(id);
+                if(list.size() == 0){
+                    break;
+                }
+            }
+            newPerson.setPersonid(id);
             newPerson.setUserid("1");
             newPerson.setPersondelete("0");
         }else if(isNew.equals("update")){
