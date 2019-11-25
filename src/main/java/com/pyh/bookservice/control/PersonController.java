@@ -5,18 +5,20 @@ import com.pyh.bookservice.entity.Book;
 import com.pyh.bookservice.entity.Person;
 import com.pyh.bookservice.entity.Result;
 import com.pyh.bookservice.service.PersonService;
+import com.pyh.bookservice.util.IdUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import javax.annotation.Resource;
+import java.util.*;
 
 @RestController
 public class PersonController {
     @Autowired
     private PersonService personService;
+
+    @Resource
+    private IdUtil idUtil;
 
     /**
      * 查询所有人员及按人员身份查找人员
@@ -85,8 +87,8 @@ public class PersonController {
         newPerson.setPersontel(inputdata.get("persontel").toString());
         newPerson.setPersonpassword(inputdata.get("personpassword").toString());
         if(isNew.equals("add")){
-            newPerson.setPersonid(UUID.randomUUID().toString());
-            newPerson.setUserid("0");
+            newPerson.setPersonid(idUtil.getRandomId());
+            newPerson.setUserid("1");
             newPerson.setPersondelete("0");
         }else if(isNew.equals("update")){
             newPerson.setPersonid(inputdata.get("personid").toString());
